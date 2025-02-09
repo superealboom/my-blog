@@ -6,7 +6,7 @@ import { notes } from './notes'
  * @see https://theme-plume.vuejs.press/config/basic/
  */
 export default defineThemeConfig({
-  logo: 'images/logoIn.svg',
+  logo: 'logoIn.svg',
 
   appearance: true,  // 配置 深色模式
 
@@ -37,7 +37,7 @@ export default defineThemeConfig({
    * @see https://theme-plume.vuejs.press/config/basic/#profile
    */
   profile: {
-    avatar: 'images/logoIn.svg',
+    avatar: 'logoIn.svg',
     name: 'tian ci',
     description: '5️⃣🐔🏄‍♀️🧱🥷(5G冲浪搬砖刺客)',
     // circle: true,
