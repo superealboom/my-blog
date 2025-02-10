@@ -1,12 +1,15 @@
 import { defineNavbarConfig } from 'vuepress-theme-plume'
 
 export const navbar = defineNavbarConfig([
-  { text: '首页', link: '/' },
-  { text: '博客', link: '/blog/' },
-  { text: '标签', link: '/blog/tags/' },
-  { text: '归档', link: '/blog/archives/' },
+  { text: '首页', link: '/', icon: 'line-md:home' },
+  { text: '博客', link: '/blog/', icon: 'mynaui:pencil' },
   {
-    text: '笔记',
-    items: [{ text: '示例', link: '/notes/demo/README.md' }]
+    text: '开发',
+    icon: 'hugeicons:computer-programming-02',
+    items: [
+      { text: '操作系统', link: '/notes/operatingSystem/README.md', icon: 'ix:operating-system' },
+      { text: '计算机网络', link: '/notes/computerNetwork/README.md', icon: 'oui:ip' },
+    ]
   },
+ 
 ])

@@ -3,20 +3,22 @@ pageLayout: home
 externalLinkIcon: false
 config:
   -
-    type: hero
-    full: true
-    background: tint-plate
+    type: banner
+    banner: ./images/infinity.jpg
+    bannerMask:
+      light: 0.1
+      dark: 0.3
     hero:
-      name: tian ci
-      tagline: 
+      name: 田赐
+      tagline: Chill out and let life happen.
       text: 桃李春风一杯酒，江湖夜雨十年灯。
       actions:
         -
-          theme: brand
-          text: 博客
+          text: 进入博客
           link: /blog/
+          theme: brand
         -
+          text: Github
+          link: https://github.com/pengzhanbo
           theme: alt
-          text: Github →
-          link: https://github.com/superealboom
 ---
