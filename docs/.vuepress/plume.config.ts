@@ -11,7 +11,12 @@ export default defineThemeConfig({
   appearance: true,  // 配置 深色模式
 
   social: [
+    { icon: 'qq', link: 'https://qm.qq.com/q/qX255qfbX4' },
+    { icon: {
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M17.25 2.75H6.75A4.75 4.75 0 0 0 2 7.5v9a4.75 4.75 0 0 0 4.75 4.75h10.5A4.76 4.76 0 0 0 22 16.5v-9a4.76 4.76 0 0 0-4.75-4.75m-3.65 8.32a3.26 3.26 0 0 1-3.23 0L3.52 7.14a3.25 3.25 0 0 1 3.23-2.89h10.5a3.26 3.26 0 0 1 3.23 2.89z"/></svg>'
+      }, link: 'mailto:superealboom@163.com' },
     { icon: 'github', link: 'https://github.com/superealboom' },
+    { icon: 'juejin', link: 'https://juejin.cn/user/2278612334544056' },
   ],
   // navbarSocialInclude: ['github'], // 允许显示在导航栏的 social 社交链接
   // aside: true, // 页内侧边栏， 默认显示在右侧
@@ -29,8 +34,8 @@ export default defineThemeConfig({
 
   /* 站点页脚 */
   footer: {
-    message: '<a target="_blank" href="https://beian.miit.gov.cn/"><img src="images/beian.png" style="vertical-align: text-bottom; height: 16px;display: inline-block"/>京ICP备2023009988号-1</a><br>Copyright © 2025-present tianci. All rights reserved.',
-    copyright: '',
+    message: '<a target="_blank" href="https://beian.miit.gov.cn/">京ICP备2023009988号-1</a>',
+    copyright: 'Copyright © 2025-present tianci. All rights reserved.',
   },
 
   /**
@@ -39,7 +44,7 @@ export default defineThemeConfig({
   profile: {
     avatar: 'images/favicon.svg',
     name: 'tian ci',
-    description: '🖐️🤺🏄‍♀️🧱🥷(5G冲浪搬砖刺客)',
+    description: '🖐️&nbsp;&nbsp;🤺&nbsp;&nbsp;🏄‍♀️&nbsp;&nbsp;🧱&nbsp;&nbsp;🥷',
     // circle: true,
     // location: '',
     // organization: '',
