@@ -107,6 +107,8 @@ corepack install --global yarn@4.6.0
 
 方案 3：typora + 阿里云。typora 想把文件放在文件名同名的图片文件夹中，当文章写完确认没问题后，将文件夹上传到阿里云，再统一将相对路径全局替换成绝对路径。
 
+![image-20250211194648933](https://afuo-blog.oss-cn-beijing.aliyuncs.com/vuePress-Plume.assets/image-20250211194648933.png)
+
 最终还是选择方案 3。
 
 ## 后续优化
