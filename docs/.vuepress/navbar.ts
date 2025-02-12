@@ -9,6 +9,7 @@ export const navbar = defineNavbarConfig([
     items: [
       { text: '操作系统', link: '/notes/operatingSystem/README.md', icon: 'ix:operating-system' },
       { text: '计算机网络', link: '/notes/computerNetwork/README.md', icon: 'oui:ip' },
+      { text: '数据结构与算法', link: '/notes/dataStructuresAndAlgorithms/README.md', icon: 'quill:sort' },
     ]
   },
  
