@@ -1,27 +1,4 @@
-# my-vuepress-site
-
-The Site is generated using [vuepress](https://vuepress.vuejs.org/) and [vuepress-theme-plume](https://github.com/pengzhanbo/vuepress-theme-plume)
-
-## Install
-
-```sh
-pnpm i
-```
-
-## Usage
-
-```sh
-# start dev server
-pnpm docs:dev
-# build for production
-pnpm docs:build
-# preview production build in local
-pnpm docs:preview
-# update vuepress and theme
-pnpm vp-update
-```
-
-## Documents
-
-- [vuepress](https://vuepress.vuejs.org/)
-- [vuepress-theme-plume](https://theme-plume.vuejs.press/)
+## 我的博客
+记录自己学习生活的个人博客
+## 参考文献
+[vuepress-theme-plume](https://theme-plume.vuejs.press/) ：博客使用网址，多谢大佬提供这么优秀的主题 👍
