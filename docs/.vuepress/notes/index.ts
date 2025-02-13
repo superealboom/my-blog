@@ -3,6 +3,7 @@ import operatingSystem from './operatingSystem'
 import computerNetwork from './computerNetwork'
 import dataStructuresAndAlgorithms from './dataStructuresAndAlgorithms'
 import designPattern from './designPattern'
+import leetCode from './leetCode'
 
 export default defineNotesConfig({
     // 声明所有笔记的目录，(默认配置，通常您不需要声明它)
@@ -14,5 +15,6 @@ export default defineNotesConfig({
         computerNetwork,
         dataStructuresAndAlgorithms,
         designPattern,
+        leetCode,
     ]
 })
