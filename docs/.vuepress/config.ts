@@ -71,7 +71,7 @@ export default defineUserConfig({
        */
       shiki: {
         // 强烈建议预设代码块高亮语言，插件默认加载所有语言会产生不必要的时间开销
-        languages: ['html','javascript','css','typescript','java','shell','typescript','toml','yaml'],
+        languages: ['html','javascript','css','typescript','java','c','shell','yaml','properties','toml'],
         twoslash: false, // 启用 twoslash
         whitespace: false, // 启用 空格/Tab 高亮
         lineNumbers: true, // 启用行号

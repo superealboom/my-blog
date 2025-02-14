@@ -13,7 +13,7 @@ https://mvnrepository.com/ 搜索 org.apache.kafka 可以看到有两种maven格
 
 - kafka-clients-2.3.1.jar
 
-```Java
+```xml
 <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
 <dependency>
     <groupId>org.apache.kafka</groupId>
@@ -26,7 +26,7 @@ https://mvnrepository.com/ 搜索 org.apache.kafka 可以看到有两种maven格
 
 - kafka_2.11-2.3.1.jar （多出来的这个是scala客户端）
 
-```Java
+```xml
 <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka -->
 <dependency>
     <groupId>org.apache.kafka</groupId>
