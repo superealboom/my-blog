@@ -11,7 +11,7 @@ config:
     hero:
       name: 田赐
       tagline: Chill out and let life happen.
-      text: 桃李春风一杯酒，江湖夜雨十年灯。
+      text: 雄关漫道真如铁，而今迈步从头越。
       actions:
         -
           text: 进入博客
