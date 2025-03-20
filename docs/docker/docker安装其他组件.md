@@ -17,8 +17,28 @@ mv webapps.dist webapps
 ```
 ## zookeeper
 ```shell
-docker pull zookeeper
-docker run -d --name zookeeper -p 2181:2181 -t zookeeper:3.5.8
+# 推荐使用 Bitnami 的官方镜像（配置更友好，支持匿名登录）
+docker pull bitnami/zookeeper:latest
+
+# 为了数据持久化（避免容器删除后数据丢失）
+mkdir -p /my/zookeeper/data
+mkdir -p /my/zookeeper/logs
+# 分配权限
+sudo chown -R 1001:1001 /my/zookeeper/data
+sudo chown -R 1001:1001 /my/zookeeper/logs
+
+# zookeeper 启动
+docker run -d \
+  --name zookeeper \
+  -p 2181:2181 \          # 映射客户端端口
+  -e ALLOW_ANONYMOUS_LOGIN=yes \  # 允许匿名登录（测试环境）
+  --restart unless-stopped \      # 容器崩溃自动重启
+  -v /my/zookeeper/data:/bitnami/zookeeper/data \  # 持久化数据目录
+  -v /my/zookeeper/logs:/bitnami/zookeeper/datalog \  # 持久化日志目录
+  bitnami/zookeeper:latest
+  
+# 进入zookeeper容器
+docker exec -it zookeeper zkCli.sh -server localhost:2181
 ```
 ## kafka
 ```shell
@@ -115,7 +135,6 @@ docker run --env MODE=standalone --name nacos -d -p 8848:8848 -p 9848:9848 nacos
 ```shell
 docker run --name nginx -v /opt/nginx/nginx.conf:/etc/nginx/nginx.conf:ro -p 80:80 -d nginx
 ```
-
 
 
 
