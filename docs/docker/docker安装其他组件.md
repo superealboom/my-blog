@@ -40,7 +40,57 @@ docker run -d \
 # 进入zookeeper容器
 docker exec -it zookeeper zkCli.sh -server localhost:2181
 ```
+## rocketmq
+
+[Apache docker官网安装docker步骤](https://rocketmq.apache.org/zh/docs/quickStart/02quickstartWithDocker/)
+
+> 原本按照官网文档安装就行，但是在安装可视化页面的时候因为 brokerIP1=127.0.0.1 导致无法连通
+
+```shell
+docker pull apache/rocketmq:5.3.1
+
+docker network create rocketmq
+
+# 启动 NameServer
+docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq apache/rocketmq:5.3.1 sh mqnamesrv
+
+# 验证 NameServer 是否启动成功
+docker logs -f rmqnamesrv
+
+# 启动 Broker 和 Proxy
+docker run -d \
+--name rmqbroker \
+--network rocketmq \
+-p 10912:10912 -p 10911:10911 -p 10909:10909 \
+-p 8080:8080 -p 8081:8081 \
+-e "NAMESRV_ADDR=rmqnamesrv:9876" \
+apache/rocketmq:5.3.1 sh mqbroker --enable-proxy \
+-c /home/rocketmq/rocketmq-5.3.1/conf/broker.conf
+
+# 验证 Broker 是否启动成功
+docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/proxy.log"
+
+# 安装 RocketMQ 可视化控制台
+docker run -d --name rmqconsole \
+--network rocketmq \
+-e "JAVA_OPTS=-Drocketmq.namesrv.addr=rmqnamesrv:9876" \
+-p 9090:8080 \
+styletang/rocketmq-console-ng
+
+# 直接在浏览器访问，即可看到控制台页面
+ip:9090
+
+# 其他命令（记录一下）
+# 查看现有的 Docker 网络
+docker network ls
+# 删除 rocketmq 网络
+docker network rm rocketmq
+```
+
+![image-20250321105129618](https://afuo-blog.oss-cn-beijing.aliyuncs.com/docker.assets/image-20250321105129618.png)
+
 ## kafka
+
 ```shell
 docker pull wurstmeister/kafka:2.12-2.3.1
 docker run  -d --name kafka -p 9092:9092 -e KAFKA_BROKER_ID=0 -e KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://localhost:9092 -e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092  wurstmeister/kafka:2.12-2.3.1
