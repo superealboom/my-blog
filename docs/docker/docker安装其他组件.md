@@ -57,6 +57,9 @@ docker run -d --name rmqnamesrv -p 9876:9876 --network rocketmq apache/rocketmq:
 # 验证 NameServer 是否启动成功
 docker logs -f rmqnamesrv
 
+# 进入 rocketmq 目录
+cd /my/rocketmq
+
 # 启动 Broker 和 Proxy
 docker run -d \
 --name rmqbroker \
@@ -64,11 +67,15 @@ docker run -d \
 -p 10912:10912 -p 10911:10911 -p 10909:10909 \
 -p 8080:8080 -p 8081:8081 \
 -e "NAMESRV_ADDR=rmqnamesrv:9876" \
+-v ./broker.conf:/home/rocketmq/rocketmq-5.3.1/conf/broker.conf \
 apache/rocketmq:5.3.1 sh mqbroker --enable-proxy \
 -c /home/rocketmq/rocketmq-5.3.1/conf/broker.conf
 
 # 验证 Broker 是否启动成功
 docker exec -it rmqbroker bash -c "tail -n 10 /home/rocketmq/logs/rocketmqlogs/proxy.log"
+
+# 拉取 控制台
+docker pull styletang/rocketmq-console-ng
 
 # 安装 RocketMQ 可视化控制台
 docker run -d --name rmqconsole \
@@ -88,6 +95,8 @@ docker network rm rocketmq
 ```
 
 ![image-20250321105129618](https://afuo-blog.oss-cn-beijing.aliyuncs.com/docker.assets/image-20250321105129618.png)
+
+对应java使用rocketmq的demo可见 [个人github的demo项目](https://github.com/superealboom/demo) 
 
 ## kafka
 
