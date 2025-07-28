@@ -42,7 +42,7 @@ export default defineThemeConfig({
   profile: {
     avatar: 'images/favicon.svg',
     name: 'tian ci',
-    description: '🖐️&nbsp;&nbsp;🤺&nbsp;&nbsp;🏄‍♀️&nbsp;&nbsp;🧱&nbsp;&nbsp;🥷',
+    description: '敲代码就要笑着敲️&nbsp;😇😇😇',
     // circle: true,
     // location: '',
     // organization: '',

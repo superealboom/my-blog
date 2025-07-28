@@ -164,7 +164,7 @@ public T get() {
 
 1. 为了让它能直接访问`ThreadLocal`的私有成员（比如`threadLocalHashCode`用于计算数组索引），同时避免暴露给外部
 
-## 9 为什么必须调用remove()
+##  为什么必须调用remove()
 
 1. 当 ThreadLocal 被回收（key=null），若线程仍存活，value 会一直被 ThreadLocalMap 强引用，无法回收（形成 “孤儿 value”）
 2. 因此，**使用 ThreadLocal 后必须调用`remove()`**，手动删除`key-value`对，彻底避免 value 的内存泄漏。
