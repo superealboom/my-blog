@@ -1,5 +1,5 @@
 ---
-title: ThreadLocal的实现原理及内存泄漏问题
+title: ThreadLocal 的实现原理及内存泄漏问题
 tags:
   - ai随机问
 createTime: 2025/07/25 17:00:15
@@ -101,7 +101,7 @@ public T get() {
 
 👇 如果强弱引用初步了解了，那ThreadLocalMap中的key设计成弱引用的意义是什么？
 
-## 4 ThreadLocalMap中的key设计成弱引用的意义是什么？
+## 4. ThreadLocalMap中的key设计成弱引用的意义是什么？
 
 不妨假设 ThreadLocalMap 中的 key 是强引用，看看会发生什么。
 
@@ -118,7 +118,7 @@ public T get() {
 
 👇 提到了很多强引用失效，那么强引用什么时候失效？
 
-## 5 强引用什么时候失效？
+## 5. 强引用什么时候失效？
 
 1. 线程的生命周期（新建、就绪、运行、阻塞、终止）本身并不直接决定强引用的回收
 2. 强引用所在的“作用域”决定了它何时被释放
@@ -134,7 +134,7 @@ public T get() {
 
 👇 明确了当 ThreadLocal 强引用失效后，会被GC回收，和 ThreadLocalMap 中的 key 消失，那么两者的顺序呢？
 
-## 6 ThreadLocal 回收的对象和时机
+## 6. ThreadLocal 回收的对象和时机
 
 以局部变量 `ThreadLocal tl = new ThreadLocal()` 举例，当方法执行完毕后
 
@@ -146,7 +146,7 @@ public T get() {
 
 👇 之所以对顺序存在疑问，是我对 ThreadLocalMap 的归属关系不明白
 
-## 7 ThreadLocalMap的“归属权”
+## 7. ThreadLocalMap的“归属权”
 
 1. ThreadLocalMap 并不属于 ThreadLocal，而是属于 Thread
 2. ThreadLocalMap 是 Thread 的成员变量（`Thread.threadLocals`），每个线程独立持有一个
@@ -160,11 +160,11 @@ public T get() {
 
 👇 好，ThreadLocalMap不归属ThreadLocal，但我发现 ThreadLocalMap是ThreadLocal的内部类，为什么这么设计？
 
-## 8 ThreadLocalMap为什么设计成ThreadLocal的内部类？
+## 8. ThreadLocalMap为什么设计成ThreadLocal的内部类？
 
 1. 为了让它能直接访问`ThreadLocal`的私有成员（比如`threadLocalHashCode`用于计算数组索引），同时避免暴露给外部
 
-##  为什么必须调用remove()
+##  9. 为什么必须调用remove()
 
 1. 当 ThreadLocal 被回收（key=null），若线程仍存活，value 会一直被 ThreadLocalMap 强引用，无法回收（形成 “孤儿 value”）
 2. 因此，**使用 ThreadLocal 后必须调用`remove()`**，手动删除`key-value`对，彻底避免 value 的内存泄漏。
