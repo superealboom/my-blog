@@ -6,3 +6,14 @@ docs/.vuepress/dist
 .idea
 .DS_Store
 *.log
+/docs/.obsidian/app.json
+/docs/.obsidian/appearance.json
+/docs/.obsidian/community-plugins.json
+/docs/.obsidian/core-plugins.json
+/docs/.obsidian/plugins/obsidian-image-auto-upload-plugin/main.js
+/docs/.obsidian/plugins/open-in-new-tab/main.js
+/docs/.obsidian/plugins/obsidian-image-auto-upload-plugin/manifest.json
+/docs/.obsidian/plugins/open-in-new-tab/manifest.json
+/docs/.obsidian/themes/Typora-Vue/manifest.json
+/docs/.obsidian/themes/Typora-Vue/theme.css
+/docs/.obsidian/workspace.json
